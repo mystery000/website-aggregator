@@ -17,3 +17,9 @@ As previously mentioned, ChatGPT is not accessible through a public API. Instead
 # What is the Puppeteer?
 
 Puppeteer is a Node.js library that automates several browser actions such as form submission, crawling single-page applications, UI testing, and in particular, web scraping and generating screenshots of web pages.
+
+# How to communicate with ChatGPT in Node.js
+
+ChatGPT is not yet available as a public API. Therefore, to use it, we have to scrape our way in — meaning we’ll perform a full browser automation that logs in to the OpenAI website, solves the captcha, and send an API request with the OpenAI cookies.
+
+Fortunately, a public library that does this is available and has been installed as part of the project requirement.

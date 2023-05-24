@@ -17,5 +17,8 @@
     "nodemon": "^2.0.22",
     "puppeteer": "^20.3.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
 }
