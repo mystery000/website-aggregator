@@ -4,6 +4,11 @@ import Loading from './components/Loading'
 const App = () => {
     const [url, setURL] = useState('')
     const [loading, setLoading] = useState(false)
+    const [websiteContent, setWebsiteContent] = useState([])
+
+    //👇🏻 remove the quotation marks around the description
+    const trimDescription = (content) =>
+        content.match(/(?:"[^"]*"|^[^"]*$)/)[0].replace(/"/g, '')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,10 +32,15 @@ const App = () => {
             //👇🏻 toggles the loading state if the request is successful
             if (data.message) {
                 setLoading(false)
+                //👇🏻 update the state with the server response
+                setWebsiteContent(data.database)
             }
         } catch (error) {
             console.log(error)
         }
+    }
+    if (loading) {
+        return <Loading />
     }
     return (
         <div className="home">
@@ -46,6 +56,15 @@ const App = () => {
                 />
                 <button onClick={handleSubmit}>ADD WEBSITE</button>
             </form>
+            <main className="website__container ">
+                {websiteContent.map((item) => (
+                    <div className="website__item" key={item.id}>
+                        <img src={item?.brandImage} alt={item?.brandName} />
+                        <h3>{item?.brandName}</h3>
+                        <p>{trimDescription(item?.brandDescription)}</p>
+                    </div>
+                ))}
+            </main>
         </div>
     )
 }

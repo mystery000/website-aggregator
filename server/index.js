@@ -2,7 +2,7 @@
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const puppeteer = require('puppeteer')
-import { ChatGPTAPI } from 'chatgpt'
+import { ChatGPTAPIBrowser } from 'chatgpt'
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -29,7 +29,7 @@ const generateID = () => Math.random().toString(36).substring(2, 10)
 
 async function chatgptFunction(content) {
     // use puppeteer to bypass cloudflare (headful because of captchas)
-    const api = new ChatGPTAPI({
+    const api = new ChatGPTAPIBrowser({
         email: process.env.email,
         password: process.env.password,
     })
