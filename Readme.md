@@ -13,3 +13,7 @@ ChatGPT performs other tasks, such as proofreading, paraphrasing, and translatio
 # Limitation with ChatGPT
 
 As previously mentioned, ChatGPT is not accessible through a public API. Instead, we can use web scraping techniques to access it. This involves automating the process of logging in to the OpenAI website, solving the captcha (you can use 2captcha for this), and sending an API request with the OpenAI cookies. Fortunately, there is a public library that can handle these tasks for us. Keep in mind that this is not a formal API, so you may encounter limitations if you attempt to make a large number of requests. Additionally, it is not suitable for real-time requests. If you want to use it, consider implementing a queue system for background processing.
+
+# What is the Puppeteer?
+
+Puppeteer is a Node.js library that automates several browser actions such as form submission, crawling single-page applications, UI testing, and in particular, web scraping and generating screenshots of web pages.

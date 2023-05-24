@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [url, setURL] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log({ url })
+        setURL('')
+    }
+    return (
+        <div className="home">
+            <form className="home__form">
+                <h2>Website Aggregator</h2>
+                <label htmlFor="url">Provide the website URL</label>
+                <input
+                    type="url"
+                    name="url"
+                    id="url"
+                    value={url}
+                    onChange={(e) => setURL(e.target.value)}
+                />
+                <button onClick={handleSubmit}>ADD WEBSITE</button>
+            </form>
+        </div>
+    )
 }
-
-export default App;
+export default App
